@@ -33,6 +33,11 @@ bot.on('message', async (msg) => {
     msg.reply('wow, what a great post')
   }
 
+  if (command === 'hi'){
+      msg.channel.send("Hi <@>")
+  }
+
+
   if(command === 'stinky'){
       msg.channel.send(msg.author.username +' is stinky')
   }
