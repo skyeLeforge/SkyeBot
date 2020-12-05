@@ -37,6 +37,15 @@ bot.on('message', async (msg) => {
       msg.channel.send("Hi <@374448245268807681>")
   }
 
+  if(command === 'help'){
+    msg.channel.send('Here are the commands currently aviliable:\
+                      \
+                      help: Gives you help\
+                      hi: Im Ceres\
+                      ego: Boost Your Ego\
+                      stinky: calls you stinky\
+                      clear x: removed the last x messages in a channel')
+  }
 
   if(command === 'stinky'){
       msg.channel.send(msg.author.username +' is stinky')
