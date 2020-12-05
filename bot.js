@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
-const token = 'Nzg0NTI1OTc3Nzk1NTU5NDU0.X8qkwA.oxVXWCRfC_KMeL2QLWuft0nzVQU'
+const token = process.env.APIKEY
 
 bot.on('ready', () => {
   console.log('bot is ready')
