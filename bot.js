@@ -34,7 +34,7 @@ bot.on('message', async (msg) => {
   }
 
   if (command === 'hi'){
-      msg.channel.send("Hi <@>")
+      msg.channel.send("Hi <@374448245268807681>")
   }
 
 
