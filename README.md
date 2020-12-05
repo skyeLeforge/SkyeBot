@@ -9,5 +9,4 @@ To Set Up
 
 Now the bot should be up. 
 
-
-Bot invite link: https://discord.com/api/oauth2/authorize?client_id=784525977795559454&permissions=0&redirect_uri=http%3A%2F%2Flocalhost%3A5000&scope=bot
+Removed the link becuase the bot is not ready to be used on other servers, maybe coming eventually????
