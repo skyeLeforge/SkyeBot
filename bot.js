@@ -9,7 +9,7 @@ bot.on('ready', () => {
 
 bot.login(token)
 
-const prefix = '!'
+let prefix = ';'
 
 bot.on('message', async (msg) => {
   //if our message doesnt start with our defined prefix, dont go any further into function
@@ -39,12 +39,17 @@ bot.on('message', async (msg) => {
 
   if(command === 'help'){
     msg.channel.send('Here are the commands currently aviliable:\
-                      \
-                      help: Gives you help\
-                      hi: Im Ceres\
-                      ego: Boost Your Ego\
-                      stinky: calls you stinky\
-                      clear x: removed the last x messages in a channel')
+                      \nhelp: Gives you help\
+                      \nhi: Im Ceres\
+                      \nego: Boost Your Ego\
+                      \nstinky: calls you stinky\
+                      \nclear x: removed the last x messages in a channel\
+                      \nprefix _: Changes the prefix to whatever you put after the space')
+  }
+
+  if(command === 'prefix'){
+    prefix = args[0]
+    msg.channel.send(`Changed prefix to ${args[0]} `)
   }
 
   if(command === 'stinky'){
@@ -59,17 +64,15 @@ bot.on('message', async (msg) => {
     if (args[0]) {
       //add 1 to delete clear command itself
       num = parseInt(args[0]) + 1;
+       //bulk delete the messages
+       msg.channel.bulkDelete(num);
+       //notify channel of deleted messages
+       msg.channel.send(`deleted  ${args[0]} posts for you`);
+    }else{
+      console.log('0 messages to delete')
+      msg.channel.send('Ya didnt tell me how many messages to delete, stinky');
     }
 
-    if (num==1){
-        console.log('0 messages')
-        msg.channel.send('Ya didnt tell me how many messages to send, stinky');
-    }else{
-        //bulk delete the messages
-        msg.channel.bulkDelete(num);
-        //notify channel of deleted messages
-        msg.channel.send(`deleted  ${args[0]} posts for you`);
-    }
   }
 
 
