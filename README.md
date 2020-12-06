@@ -1,5 +1,5 @@
 # SkyeBot
-My very own discord bot
+My very own discord bot, I made it for fun to put in a server for my close friends.
 
 To Set Up
 
@@ -9,5 +9,6 @@ To Set Up
 
 Now the bot should be up. 
 
+Eventually the bot will be able to be used on multiple servers, but that will take some time due to needing to interface with adatabase to do actions such as configure different prefix's for multiple servers. Once the bot is capable of that, it will be publically aviliable for use! 
 
-Bot invite link: https://discord.com/api/oauth2/authorize?client_id=784525977795559454&permissions=0&redirect_uri=http%3A%2F%2Flocalhost%3A5000&scope=bot
+It will also be eventually more than a one file repo, this is just set up this way because the bot only has a small number of functions at the time
