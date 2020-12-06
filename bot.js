@@ -1,12 +1,9 @@
-//import {randomCard} from './mtg.js';
 
-
-
+const {randomCard} = require("./commands/mtg.js")
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
-//const token = process.env.APIKEY
-const token = "Nzg0NTI1OTc3Nzk1NTU5NDU0.X8qkwA.VAPvAsdwnbTQQrWL-P6oCTMuA-M"
+const token = process.env.APIKEY
 
 bot.on('ready', () => {
   console.log('bot is ready')
@@ -31,7 +28,7 @@ bot.on('message', async (msg) => {
   //log the command
   console.log('command: ', command)
   //log any arguments passed with a command
-  console.log(args)
+  console.log('args: ', args)
 
   if(command === 'ego') {
     msg.react("😀")
@@ -63,10 +60,13 @@ bot.on('message', async (msg) => {
   }
 
   if(command === 'mtg'){
-    let cardData = randomCard()
-    let cardName = cardData.name
-    let cardIMG = cardData.image_uris.normal
-    msg.channel.send(`SkyeBot reccomends you put ${cardName} in your next mtg deck!\n ${cardIMG}`)
+    randomCard().then(function(cardData){
+      let cardName = cardData.name
+      let cardIMG = cardData.image_uris.normal
+      msg.channel.send(`SkyeBot reccomends you put ${cardName} in your next mtg deck!`)
+      msg.channel.send(cardIMG)
+    })
+
   }
 
   if (command === "clear") {
