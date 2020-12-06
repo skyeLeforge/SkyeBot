@@ -1,3 +1,7 @@
+import {randomCard} from 'mtg.js';
+
+
+
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
@@ -44,7 +48,8 @@ bot.on('message', async (msg) => {
                       \nego: Boost Your Ego\
                       \nstinky: calls you stinky\
                       \nclear x: removed the last x messages in a channel\
-                      \nprefix _: Changes the prefix to whatever you put after the space')
+                      \nprefix _: Changes the prefix to whatever you put after the space\
+                      \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck')
   }
 
   if(command === 'prefix'){
@@ -54,6 +59,13 @@ bot.on('message', async (msg) => {
 
   if(command === 'stinky'){
       msg.channel.send(msg.author.username +' is stinky')
+  }
+
+  if(command === 'mtg'){
+    let cardData = randomCard()
+    let cardName = cardData.name
+    let cardIMG = cardData.image_uris.normal
+    msg.channel.send(`SkyeBot reccomends you put ${cardName} in your next mtg deck!\n ${cardIMG}`)
   }
 
   if (command === "clear") {
@@ -74,7 +86,4 @@ bot.on('message', async (msg) => {
     }
 
   }
-
-
-  
 })
