@@ -1,6 +1,6 @@
 //file that access the Scryfall api to get a random card and a link to it
 
-function randomCard(){
+export function randomCard(){
     var parsedData
 
 
@@ -24,3 +24,4 @@ function randomCard(){
      return parsedData
 
 }
+

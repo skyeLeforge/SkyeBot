@@ -1,11 +1,12 @@
-import {randomCard} from 'mtg.js';
+//import {randomCard} from './mtg.js';
 
 
 
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
-const token = process.env.APIKEY
+//const token = process.env.APIKEY
+const token = "Nzg0NTI1OTc3Nzk1NTU5NDU0.X8qkwA.VAPvAsdwnbTQQrWL-P6oCTMuA-M"
 
 bot.on('ready', () => {
   console.log('bot is ready')
