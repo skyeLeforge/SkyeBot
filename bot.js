@@ -69,6 +69,15 @@ bot.on('message', async (msg) => {
 
   }
 
+  if(command === "christmas"){
+    msg.channel.send("<@everyone> Merry Chrysler Y'all. This has been a wild year,\
+     and I really appreciate you all abusing me to display random mtg cards and call\
+      y'all stinky. It has given me a purpose in my short life.\
+      Being born is scary. One moment you don't exist and next a bunch of gays are yelling\
+      at you to do menial task like a monkey bot. Anyways uhm thanks for giving me purpose and\
+      Skye for the love of god please stop crashing me. Murry Crumbus.")
+  }
+
   if (command === "clear") {
     //default deletes message itself plus previous
     let num = 2;
