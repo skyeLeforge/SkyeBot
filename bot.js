@@ -3,7 +3,9 @@ const {randomCard} = require("./commands/mtg.js")
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
+
 const token = process.env.APIKEY
+
 
 bot.on('ready', () => {
   console.log('bot is ready')
@@ -69,8 +71,15 @@ bot.on('message', async (msg) => {
 
   }
 
-  if(command === "christmas"){
-    msg.channel.send("@everyone Merry Chrysler Y'all. This has been a wild year, and I really appreciate you all abusing me to display random mtg cards and call y'all stinky. It has given me a purpose in my short life. Being born is scary. One moment you don't exist and next a bunch of gays are yelling at you to do menial task like a monkey bot. Anyways uhm thanks for giving me purpose and Skye for the love of god please stop crashing me. Murry Crumbus.")
+  if(command === 'culture'){
+    if(msg.member.voice.channel){
+      msg.member.voiceChannel.join()
+      msg.channel.send('-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw')
+      voiceChannel.leave()
+    }else{
+      msg.channel.send('Please join a voice channel to play culture.')
+    }
+
   }
 
   if (command === "clear") {
