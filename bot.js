@@ -52,6 +52,10 @@ bot.on('message', async (msg) => {
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck')
   }
 
+  if(command === 'test'){
+    msg.channel.send('-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw')
+  }
+
   if(command === 'prefix'){
     prefix = args[0]
     msg.channel.send(`Changed prefix to ${args[0]} `)
