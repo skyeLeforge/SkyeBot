@@ -48,12 +48,8 @@ bot.on('message', async (msg) => {
                       \nstinky: calls you stinky\
                       \nclear x: removed the last x messages in a channel\
                       \nprefix _: Changes the prefix to whatever you put after the space\
-                      \nculture: ZZZZZZZZZZPlays culutre in the voice channel you are in\
+                      \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck')
-  }
-
-  if(command === 'test'){
-    msg.channel.send('-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw')
   }
 
   if(command === 'prefix'){
@@ -76,16 +72,7 @@ bot.on('message', async (msg) => {
   }
 
   if(command === 'culture'){
-    const vc = msg.member.voice.channel
-    if(vc){
-      vc.join().then(() => {
-        msg.channel.send('-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw')
-        vc.leave()
-      })
-    }else{
-      msg.channel.send('Please join a voice channel to play culture.')
-    }
-
+    msg.channel.send('```-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw```')
   }
 
   if (command === "clear") {
