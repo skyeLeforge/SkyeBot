@@ -5,6 +5,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const token = process.env.APIKEY
 
+
 bot.on('ready', () => {
   console.log('bot is ready')
 })
@@ -47,6 +48,7 @@ bot.on('message', async (msg) => {
                       \nstinky: calls you stinky\
                       \nclear x: removed the last x messages in a channel\
                       \nprefix _: Changes the prefix to whatever you put after the space\
+                      \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck')
   }
 
@@ -69,8 +71,8 @@ bot.on('message', async (msg) => {
 
   }
 
-  if(command === "christmas"){
-    msg.channel.send("@everyone Merry Chrysler Y'all. This has been a wild year, and I really appreciate you all abusing me to display random mtg cards and call y'all stinky. It has given me a purpose in my short life. Being born is scary. One moment you don't exist and next a bunch of gays are yelling at you to do menial task like a monkey bot. Anyways uhm thanks for giving me purpose and Skye for the love of god please stop crashing me. Murry Crumbus.")
+  if(command === 'culture'){
+    msg.channel.send('```-play https://open.spotify.com/playlist/2bmhCh6qv4mbbqgfzVFIiE?si=5niRbaZ-TJGeR6z7GA6krw```')
   }
 
   if (command === "clear") {
