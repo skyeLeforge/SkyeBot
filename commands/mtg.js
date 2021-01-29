@@ -7,7 +7,6 @@ function randomCard(){
     return (async () => {
         const response = await fetch('https://api.scryfall.com/cards/random');
         const json = await response.json();
-        //console.log(json)
         return json;
     })();
 }

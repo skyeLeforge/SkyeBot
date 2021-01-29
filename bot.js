@@ -1,5 +1,5 @@
-
-const {randomCard} = require("./commands/mtg.js")
+const {randomCard} = require("./commands/mtg.js");
+const owofy = require('owofy');
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
@@ -69,6 +69,10 @@ bot.on('message', async (msg) => {
       msg.channel.send(cardIMG)
     })
 
+  }
+
+  if(command === 'owo'){
+    msg.channel.send(owofy(args))
   }
 
   if(command === 'culture'){
