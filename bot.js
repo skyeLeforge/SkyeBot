@@ -49,7 +49,8 @@ bot.on('message', async (msg) => {
                       \nclear x: removed the last x messages in a channel\
                       \nprefix _: Changes the prefix to whatever you put after the space\
                       \nculture: puts the command to play culture for easy use\
-                      \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck')
+                      \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck\
+                      \nowo: owoifys your text')
   }
 
   if(command === 'prefix'){
@@ -72,7 +73,11 @@ bot.on('message', async (msg) => {
   }
 
   if(command === 'owo'){
-    msg.channel.send(owofy(args))
+    let toOwo = msg.content.slice(prefix.length + command.length).trim()
+    if(toOwo.length > 0)
+      msg.channel.send(owofy(toOwo))
+    else 
+      msg.channel.send(`I'm a owo you`)
   }
 
   if(command === 'culture'){
