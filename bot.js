@@ -3,7 +3,7 @@ const owofy = require('owofy');
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
-const token = 'Nzg0NTI1OTc3Nzk1NTU5NDU0.X8qkwA.R-3-5pPkDbXzmOTKnJeeMo-JQC0'
+const token = process.env.APIKEY
 
 
 bot.on('ready', () => {
