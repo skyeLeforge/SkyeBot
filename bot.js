@@ -50,7 +50,8 @@ bot.on('message', async (msg) => {
                       \nprefix _: Changes the prefix to whatever you put after the space\
                       \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck\
-                      \nowo: owoifys your text')
+                      \nowo: owoifys your text\
+                      \nrimg: gives you a link for a random image from Lightshot')
   }
 
   if(command === 'prefix'){
@@ -60,6 +61,26 @@ bot.on('message', async (msg) => {
 
   if(command === 'stinky'){
       msg.channel.send(msg.author.username +' is stinky')
+  }
+
+  if(command === 'rimg'){
+    //create a link for a random image from lightshot
+    let randStr = String.fromCharCode(97+Math.floor(Math.random() * 26)) + String.fromCharCode(97+Math.floor(Math.random() * 26))
+    let randNum = Math.floor(1000 + Math.random() * 9000)
+    // handle the number being less than 1000 because the url needs 4 numbers
+    if (randNum < 1000){
+      randStr = randStr + '0'
+      if (randNum < 100){
+        randStr = randStr + '0'
+        if (randNum <10){
+          randStr = randStr + '0'
+        }
+      }
+    }
+
+    // add the number to the str
+    randStr = randStr + randNum
+    msg.channel.send(`https://prnt.sc/${randStr}`)
   }
 
   if(command === 'mtg'){
