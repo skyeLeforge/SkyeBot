@@ -16,6 +16,7 @@ let prefix = ';'
 
 bot.on('message', async (msg) => {
   //if our message doesnt start with our defined prefix, dont go any further into function
+  console.log(msg.content)
   if(!msg.content.startsWith(prefix)) {
     console.log('no prefix')
     return
