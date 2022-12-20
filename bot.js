@@ -1,5 +1,4 @@
 const {randomCard} = require("./commands/mtg.js");
-const owofy = require('owofy');
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
@@ -51,7 +50,6 @@ bot.on('message', async (msg) => {
                       \nprefix _: Changes the prefix to whatever you put after the space\
                       \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck\
-                      \nowo: owoifys your text\
                       \nrimg: gives you a link for a random image from Lightshot')
   }
 
@@ -92,14 +90,6 @@ bot.on('message', async (msg) => {
       msg.channel.send(cardIMG)
     })
 
-  }
-
-  if(command === 'owo'){
-    let toOwo = msg.content.slice(prefix.length + command.length).trim()
-    if(toOwo.length > 0)
-      msg.channel.send(owofy(toOwo))
-    else 
-      msg.channel.send(`I'm a owo you`)
   }
 
   if(command === 'culture'){
