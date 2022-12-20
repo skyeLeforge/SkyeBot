@@ -10,7 +10,7 @@
   "dependencies": {
     "discord.js": "^12.5.1",
     "node-fetch": "^2.6.7",
-    "owofy": "^1.0.2",
+    "owoify-js": "^2.0.0",
     "request": "2.88.2"
   }
 }

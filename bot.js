@@ -1,5 +1,8 @@
 const {randomCard} = require("./commands/mtg.js");
-const owofy = require('owofy');
+const {randomPokemon} = require("./commands/pokemon.js");
+const {getRandomArrayElement} = require("./helpers/getRandomArrayElement.js");
+const {capitalizeEveryWord} = require("./helpers/captializeEveryWord.js");
+const owoify = require('owoify-js').default
 const Discord = require("discord.js");
 
 const bot = new Discord.Client();
@@ -37,14 +40,10 @@ bot.on('message', async (msg) => {
     msg.reply('wow, what a great post')
   }
 
-  if (command === 'hi'){
-      msg.channel.send("Hi <@374448245268807681>")
-  }
 
   if(command === 'help'){
     msg.channel.send('Here are the commands currently aviliable:\
                       \nhelp: Gives you help\
-                      \nhi: Im Ceres\
                       \nego: Boost Your Ego\
                       \nstinky: calls you stinky\
                       \nclear x: removed the last x messages in a channel\
@@ -52,7 +51,8 @@ bot.on('message', async (msg) => {
                       \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck\
                       \nowo: owoifys your text\
-                      \nrimg: gives you a link for a random image from Lightshot')
+                      \npokemon: gives you youre Perfect Pokemon team!\
+                      \nrimg: no')
   }
 
   if(command === 'prefix'){
@@ -64,24 +64,21 @@ bot.on('message', async (msg) => {
       msg.channel.send(msg.author.username +' is stinky')
   }
 
-  if(command === 'rimg'){
-    //create a link for a random image from lightshot
-    let randStr = String.fromCharCode(97+Math.floor(Math.random() * 26)) + String.fromCharCode(97+Math.floor(Math.random() * 26))
-    let randNum = Math.floor(1000 + Math.random() * 9000)
-    // handle the number being less than 1000 because the url needs 4 numbers
-    if (randNum < 1000){
-      randStr = randStr + '0'
-      if (randNum < 100){
-        randStr = randStr + '0'
-        if (randNum <10){
-          randStr = randStr + '0'
-        }
+  if(command === 'pokemon') {
+    randomPokemon().then(function(pokemonList){
+      // generate 6 random pokemon
+      let text = 'Here is your perfect team:'
+      for(i=0; i<6; i++){
+        const pokemon = getRandomArrayElement(pokemonList).name
+        const capital = capitalizeEveryWord(pokemon)
+        text += `\n ${capital}`
       }
-    }
+      msg.channel.send(text)
+    })
+  }
 
-    // add the number to the str
-    randStr = randStr + randNum
-    msg.channel.send(`https://prnt.sc/${randStr}`)
+  if(command === 'rimg'){
+    msg.channel.send(`We're NOT doing this.`)
   }
 
   if(command === 'mtg'){
@@ -97,7 +94,7 @@ bot.on('message', async (msg) => {
   if(command === 'owo'){
     let toOwo = msg.content.slice(prefix.length + command.length).trim()
     if(toOwo.length > 0)
-      msg.channel.send(owofy(toOwo))
+      msg.channel.send(owoify(toOwo))
     else 
       msg.channel.send(`I'm a owo you`)
   }
