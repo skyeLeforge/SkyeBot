@@ -2,7 +2,7 @@
 const fetch = require("node-fetch")
 
 
-function getSprite(pokemonUrl){
+function pokemonSprite(pokemonUrl){
     //fetch a random pokemon using the pokeapi
     return (async () => {
         // request all pokemon
@@ -19,5 +19,5 @@ function getSprite(pokemonUrl){
 }
 
 module.exports = {
-    getSprite
+    pokemonSprite
 }
