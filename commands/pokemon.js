@@ -1,5 +1,6 @@
 //file that access the pokemon api to get a random pokemon team and a link to it
 const fetch = require("node-fetch")
+const {getRandomArrayElement} = require("../helpers/getRandomArrayElement.js");
 
 
 function randomPokemon(){
@@ -9,7 +10,9 @@ function randomPokemon(){
         const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
         const json = await response.json();
         const pokemonList = json.results;
-        return pokemonList;
+        const pokemon = getRandomArrayElement(pokemonList)
+        return pokemon;
+
     })();
 }
 
