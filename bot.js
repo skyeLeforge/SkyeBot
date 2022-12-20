@@ -1,5 +1,6 @@
 const {randomCard} = require("./commands/mtg.js");
 const {randomPokemon} = require("./commands/pokemon.js");
+const {pokemonSprite} = require("./commands/pokemonSprite.js");
 const {getRandomArrayElement} = require("./helpers/getRandomArrayElement.js");
 const {capitalizeEveryWord} = require("./helpers/captializeEveryWord.js");
 const owoify = require('owoify-js').default
@@ -69,9 +70,12 @@ bot.on('message', async (msg) => {
       // generate 6 random pokemon
       let text = 'Here is your perfect team:'
       for(i=0; i<6; i++){
-        const pokemon = getRandomArrayElement(pokemonList).name
-        const capital = capitalizeEveryWord(pokemon)
+        const pokemon = getRandomArrayElement(pokemonList)
+        const capital = capitalizeEveryWord(pokemon.name)
         text += `\n ${capital}`
+        pokemonSprite(pokemon.url).then(function(sprite){
+          text += `\n ${sprite}`
+        })
       }
       msg.channel.send(text)
     })
