@@ -40,9 +40,6 @@ bot.on('message', async (msg) => {
     msg.reply('wow, what a great post')
   }
 
-  if (command === 'test') {
-    msg.channel.send('foo')
-  }
 
   if (command === 'help') {
     msg.channel.send('Here are the commands currently aviliable:\
@@ -71,8 +68,9 @@ bot.on('message', async (msg) => {
     msg.channel.send('Calculating the perfect team, please wait...')
     getTeam().then((res) => {
       msg.channel.send(res.text)
-      msg.channel.send(res.sprites1)
-      msg.channel.send(res.sprites2)
+      res.sprites.forEach((sprite) => {
+        msg.channel.send(sprite)
+      })
     })
   }
 
@@ -125,23 +123,14 @@ bot.on('message', async (msg) => {
 
 const getTeam = async () => {
   let text = 'Here is your perfect team:'
-  let sprites1 = ''
-  let sprites2 = ''
+  let sprites = []
   for (i = 0; i < 6; i++) {
     const pokemon = await randomPokemon()
     const sprite = await pokemonSprite(pokemon.url)
-    // console.log(pokemon)
     const capital = capitalizeEveryWord(pokemon.name)
     text += `\n ${capital}`
-    if (i< 3){
-      sprites1 +=`\n ${sprite}`
-    } else {
-      sprites2 +=`\n ${sprite}`
-
-    }
- 
-    // console.log(sprite)
+    sprites.push(sprite)
   }
-  return {text: text, sprites1: sprites1, sprites2: sprites2}
+  return {text: text, sprites: sprites}
 
 }
