@@ -20,8 +20,13 @@ let prefix = ';'
 bot.on('message', async (msg) => {
   //if our message doesnt start with our defined prefix, dont go any further into function
   console.log(msg.content)
+  if (msg.content.search('craz') && !msg.author.bot){
+    console.log('is a crazy message')
+    msg.reply('Crazy? I Was Crazy Once. They Locked Me In A Room. A Rubber Room. A Rubber Room With Rats. And Rats Make Me Crazy')
+  }
   if (!msg.content.startsWith(prefix)) {
     console.log('no prefix')
+
     return
   }
 
@@ -51,8 +56,7 @@ bot.on('message', async (msg) => {
                       \nculture: puts the command to play culture for easy use\
                       \nmtg: Runs an algorithm on all the secret data we have collected on you to determine the best mtg card for your next deck\
                       \nowo: owoifys your text\
-                      \npokemon: gives you youre Perfect Pokemon team!\
-                      \nrimg: no')
+                      \npokemon: gives you youre Perfect Pokemon team!')
   }
 
   if (command === 'prefix') {
