@@ -20,9 +20,9 @@ let prefix = ';'
 bot.on('message', async (msg) => {
   //if our message doesnt start with our defined prefix, dont go any further into function
   console.log(msg.content)
-  if (msg.content.search('craz') && !msg.author.bot){
+  if (msg.content.search('craz') !== -1 && !msg.author.bot){
     console.log('is a crazy message')
-    msg.reply('Crazy? I Was Crazy Once. They Locked Me In A Room. A Rubber Room. A Rubber Room With Rats. And Rats Make Me Crazy')
+    msg.channel.send('Crazy? I Was Crazy Once. They Locked Me In A Room. A Rubber Room. A Rubber Room With Rats. And Rats Make Me Crazy')
   }
   if (!msg.content.startsWith(prefix)) {
     console.log('no prefix')
