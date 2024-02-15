@@ -29,7 +29,8 @@ bot.on('message', async (msg) => {
 
     return
   }
-
+  console.log(msg.content.search('/x.com'))
+  console.log(msg.content.search('/twitter.com'))
   if (
     msg.content.search('/x.com') !== -1 ||
     msg.content.search('/twitter.com') !== -1
