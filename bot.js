@@ -24,13 +24,6 @@ bot.on('message', async (msg) => {
     console.log('is a crazy message')
     msg.channel.send('Crazy? I Was Crazy Once. They Locked Me In A Room. A Rubber Room. A Rubber Room With Rats. And Rats Make Me Crazy')
   }
-  if (!msg.content.startsWith(prefix)) {
-    console.log('no prefix')
-
-    return
-  }
-  console.log(msg.content.search('/x.com'))
-  console.log(msg.content.search('/twitter.com'))
   if (
     msg.content.search('/x.com') !== -1 ||
     msg.content.search('/twitter.com') !== -1
@@ -45,6 +38,13 @@ bot.on('message', async (msg) => {
       msg.channel.send(newMessage)
       msg.delete()
     }
+
+  if (!msg.content.startsWith(prefix)) {
+    console.log('no prefix')
+
+    return
+  }
+  
   //slices off prefix from our message, then trims extra whitespace, then returns our array of words from the message
   const args = msg.content.slice(prefix.length).trim().split(' ')
 
