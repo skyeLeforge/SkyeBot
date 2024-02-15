@@ -30,6 +30,20 @@ bot.on('message', async (msg) => {
     return
   }
 
+  if (
+    msg.content.search('/x.com') !== -1 ||
+    msg.content.search('/twitter.com') !== -1
+    ) {
+      let split = '/twitter.com'
+      if (msg.content.search('/x.com') !== -1) {
+        split = '/x.com'
+      }
+      const splitMsg = msg.content.split(split)
+      const newMessage = `A Message by: ${msg.author.username}\
+                          \n${splitMsg[0]}/fxtwitter.com${splitMsg[1]}`
+      msg.channel.send(newMessage)
+      msg.delete()
+    }
   //slices off prefix from our message, then trims extra whitespace, then returns our array of words from the message
   const args = msg.content.slice(prefix.length).trim().split(' ')
 
@@ -77,6 +91,8 @@ bot.on('message', async (msg) => {
       })
     })
   }
+
+
 
   if (command === 'rimg') {
     msg.channel.send(`We're NOT doing this. ok`)
